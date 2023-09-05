@@ -60,6 +60,8 @@ def is_torch_sparse_tensor(src: Any) -> bool:
     Args:
         src (Any): The input object to be checked.
     """
+    # mlu not support sparse
+    return False
     if isinstance(src, Tensor):
         if src.layout == torch.sparse_coo:
             return True
